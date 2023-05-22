@@ -9,11 +9,9 @@ set -eux
 
 cd `dirname $0`
 
-kubectl delete clusterrolebindings.rbac.authorization.k8s.io workspace-api || true
-kubectl delete clusterroles.rbac.authorization.k8s.io workspace-api || true
+kubectl delete clusterrolebindings.rbac.authorization.k8s.io registration-api || true
+kubectl delete clusterroles.rbac.authorization.k8s.io registration-api || true
 
 for file in *.yaml; do
     kubectl apply -f "$file"
 done
-
-( cd ./workspace-charts ; kubectl kustomize . | kubectl apply -f - )

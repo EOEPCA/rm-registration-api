@@ -40,3 +40,6 @@ DEREGISTER_CATALOGUE_QUEUE = os.environ.get(
 
 REDIS_PORT = int(os.environ.get("REDIS_PORT", "6379"))
 
+BUCKET_CATALOG_HARVESTER = os.environ.get(
+    "BUCKET_CATALOG_HARVESTER", "harvest-bucket-catalog"
+)

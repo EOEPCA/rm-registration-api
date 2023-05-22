@@ -7,4 +7,4 @@ services:
         volumes:
         - .:/srv/service
         env_file: test_environment.env
-        command: uvicorn --reload --host=0.0.0.0 --port 5000 --log-level=info --reload workspace_api:app
+        command: uvicorn --reload --host=0.0.0.0 --port 5000 --log-level=info --reload registration_api:app

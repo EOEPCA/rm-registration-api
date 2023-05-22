@@ -20,7 +20,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/EOEPCA/rm-workspace-api">
+  <a href="https://github.com/EOEPCA/rm-registration-api">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -29,13 +29,13 @@
   <p align="center">
     Template for developing an EOEPCA Service
     <br />
-    <a href="https://github.com/EOEPCA/rm-workspace-api"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/EOEPCA/rm-registration-api"><strong>Explore the docs »</strong></a>
     <br />
-    <a href="https://github.com/EOEPCA/rm-workspace-api">View Demo</a>
+    <a href="https://github.com/EOEPCA/rm-registration-api">View Demo</a>
     ·
-    <a href="https://github.com/EOEPCA/rm-workspace-api/issues">Report Bug</a>
+    <a href="https://github.com/EOEPCA/rm-registration-api/issues">Report Bug</a>
     ·
-    <a href="https://github.com/EOEPCA/rm-workspace-api/issues">Request Feature</a>
+    <a href="https://github.com/EOEPCA/rm-registration-api/issues">Request Feature</a>
   </p>
 </p>
 
@@ -61,7 +61,7 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://github.com/EOEPCA/rm-workspace-api)
+[![Product Name Screen Shot][product-screenshot]](https://github.com/EOEPCA/rm-registration-api)
 
 Here's a blank template to get started:
 **To avoid retyping too much info. Do a search and replace with your text editor for the following:**
@@ -70,7 +70,6 @@ Here's a blank template to get started:
 ### Built With
 
 - FastAPI
-- Kubernetes Python API
 - Redis
 
 <!-- GETTING STARTED -->
@@ -97,7 +96,7 @@ docker-compose up
 
 ## Documentation
 
-The component documentation can be found at https://eoepca.github.io/rm-workspace-api/.
+The component documentation can be found at https://eoepca.github.io/rm-registration-api/.
 
 <!-- USAGE EXAMPLES -->
 
@@ -127,7 +126,7 @@ Change the version number in the `build.gradle` wrapper task then run:
 
 ## Roadmap
 
-See the [open issues](https://github.com/EOEPCA/rm-workspace-api/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/EOEPCA/rm-registration-api/issues) for a list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 
@@ -153,7 +152,7 @@ Distributed under the Apache-2.0 License. See `LICENSE` for more information.
 
 Fabian Schindler - [@__fschindler__](https://twitter.com/__fschindler__) - fabian.schindler@eox.at
 
-Project Link: [https://github.com/EOEPCA/rm-workspace-api](https://github.com/EOEPCA/rm-workspace-api)
+Project Link: [https://github.com/EOEPCA/rm-registration-api](https://github.com/EOEPCA/rm-registration-api)
 
 <!-- ACKNOWLEDGEMENTS -->
 
@@ -165,13 +164,13 @@ Project Link: [https://github.com/EOEPCA/rm-workspace-api](https://github.com/EO
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
 [contributors-shield]: https://img.shields.io/github/contributors/EOEPCA/rm-workspace-api.svg?style=flat-square
-[contributors-url]: https://github.com/EOEPCA/rm-workspace-api/graphs/contributors
+[contributors-url]: https://github.com/EOEPCA/rm-registration-api/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/EOEPCA/rm-workspace-api.svg?style=flat-square
-[forks-url]: https://github.com/EOEPCA/rm-workspace-api/network/members
+[forks-url]: https://github.com/EOEPCA/rm-registration-api/network/members
 [stars-shield]: https://img.shields.io/github/stars/EOEPCA/rm-workspace-api.svg?style=flat-square
 [stars-url]: https://github.com/EOEPCA/rm-workspace-api/stargazers
 [issues-shield]: https://img.shields.io/github/issues/EOEPCA/rm-workspace-api.svg?style=flat-square
 [issues-url]: https://github.com/EOEPCA/rm-workspace-api/issues
-[license-shield]: https://img.shields.io/github/license/EOEPCA/rm-workspace-api.svg?style=flat-square
-[license-url]: https://github.com/EOEPCA/rm-workspace-api/blob/master/LICENSE
+[license-shield]: https://img.shields.io/github/license/EOEPCA/rm-registration-api.svg?style=flat-square
+[license-url]: https://github.com/EOEPCA/rm-registration-api/blob/master/LICENSE
 [product-screenshot]: images/screenshot.png

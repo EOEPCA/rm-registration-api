@@ -2,11 +2,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: workspace-api
+  name: registration-api
   namespace: dev
   labels:
-    app.kubernetes.io/instance: workspace-api
-    app.kubernetes.io/name: workspace-api
+    app.kubernetes.io/instance: registration-api
+    app.kubernetes.io/name: registration-api
 spec:
   strategy:
     rollingUpdate:
@@ -15,21 +15,21 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/instance: workspace-api
-      app.kubernetes.io/name: workspace-api
+      app.kubernetes.io/instance: registration-api
+      app.kubernetes.io/name: registration-api
   template:
     metadata:
       annotations:
         prometheus.io/scrape: "true"
       labels:
-        app.kubernetes.io/instance: workspace-api
-        app.kubernetes.io/name: workspace-api
+        app.kubernetes.io/instance: registration-api
+        app.kubernetes.io/name: registration-api
     spec:
-      serviceAccountName: workspace-api
+      serviceAccountName: registration-api
       containers:
-      - name: workspace-api
-        #image: 'registry.gitlab.eox.at/eox/hub/workspace-api:0.8.5'
-        image: workspace-api-k8s:0
+      - name: registration-api
+        #image: 'registry.gitlab.eox.at/eox/hub/registration-api:0.8.5'
+        image: registration-api-k8s:0
         ports:
         - name: http
           containerPort: 8080

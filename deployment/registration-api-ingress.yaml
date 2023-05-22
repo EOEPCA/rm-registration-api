@@ -1,24 +1,24 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: workspace-api
+  name: registration-api
   namespace: dev
   labels:
-    app.kubernetes.io/instance: workspace-api
-    app.kubernetes.io/name: workspace-api
+    app.kubernetes.io/instance: registration-api
+    app.kubernetes.io/name: registration-api
   annotations:
     kubernetes.io/ingress.class: nginx
     kubernetes.io/tls-acme: 'true'
     nginx.ingress.kubernetes.io/proxy-read-timeout: '600'
 spec:
   rules:
-    - host: workspace-api.dev.hub.eox.at
+    - host: registration-api.dev.hub.eox.at
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: workspace-api
+                name: registration-api
                 port:
                   name: http

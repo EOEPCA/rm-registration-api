@@ -1,16 +1,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: workspace-api
+  name: registration-api
   namespace: dev
   labels:
-    app.kubernetes.io/instance: workspace-api
-    app.kubernetes.io/name: workspace-api
+    app.kubernetes.io/instance: registration-api
+    app.kubernetes.io/name: registration-api
 spec:
   type: ClusterIP
   selector:
-    app.kubernetes.io/instance: workspace-api
-    app.kubernetes.io/name: workspace-api
+    app.kubernetes.io/instance: registration-api
+    app.kubernetes.io/name: registration-api
   ports:
     - name: http
       protocol: TCP

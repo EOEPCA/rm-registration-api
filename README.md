@@ -163,14 +163,14 @@ Project Link: [https://github.com/EOEPCA/rm-registration-api](https://github.com
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/EOEPCA/rm-workspace-api.svg?style=flat-square
+[contributors-shield]: https://img.shields.io/github/contributors/EOEPCA/rm-registration-api.svg?style=flat-square
 [contributors-url]: https://github.com/EOEPCA/rm-registration-api/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/EOEPCA/rm-workspace-api.svg?style=flat-square
+[forks-shield]: https://img.shields.io/github/forks/EOEPCA/rm-registration-api.svg?style=flat-square
 [forks-url]: https://github.com/EOEPCA/rm-registration-api/network/members
-[stars-shield]: https://img.shields.io/github/stars/EOEPCA/rm-workspace-api.svg?style=flat-square
-[stars-url]: https://github.com/EOEPCA/rm-workspace-api/stargazers
-[issues-shield]: https://img.shields.io/github/issues/EOEPCA/rm-workspace-api.svg?style=flat-square
-[issues-url]: https://github.com/EOEPCA/rm-workspace-api/issues
+[stars-shield]: https://img.shields.io/github/stars/EOEPCA/rm-registration-api.svg?style=flat-square
+[stars-url]: https://github.com/EOEPCA/rm-registration-api/stargazers
+[issues-shield]: https://img.shields.io/github/issues/EOEPCA/rm-registration-api.svg?style=flat-square
+[issues-url]: https://github.com/EOEPCA/rm-registration-api/issues
 [license-shield]: https://img.shields.io/github/license/EOEPCA/rm-registration-api.svg?style=flat-square
 [license-url]: https://github.com/EOEPCA/rm-registration-api/blob/master/LICENSE
 [product-screenshot]: images/screenshot.png

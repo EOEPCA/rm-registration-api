@@ -15,8 +15,6 @@ from registration_api import app, config
 # TODO: fix logging output with gunicorn
 logger = logging.getLogger(__name__)
 
-# only allow workspaces starting with the prefix for actions
-workspace_path_type = Path(..., regex=f"^{config.PREFIX_FOR_NAME}")
 
 # Registration API
 
@@ -26,9 +24,9 @@ class Product(BaseModel):
     parent_identifier: Optional[str] = None
 
 
-@app.post("/workspaces/{workspace_name}/register")
-async def register(product: Product, workspace_name: str = workspace_path_type):
-    k8s_namespace = workspace_name
+@app.post("/workspace/register")
+async def register(product: Product):
+    k8s_namespace = config.WORKSPACE_K8S_NAMESPACE
     client = await aioredis.from_url(
         f"redis://{config.REDIS_SERVICE_NAME}.{k8s_namespace}:{config.REDIS_PORT}"
     )
@@ -100,12 +98,11 @@ class DeregisterProduct(BaseModel):
     url: Optional[str]
 
 
-@app.post("/workspaces/{workspace_name}/deregister")
+@app.post("/workspace/deregister")
 async def deregister(
-    deregister_product: DeregisterProduct,
-    workspace_name: str = workspace_path_type,
+    deregister_product: DeregisterProduct
 ):
-    k8s_namespace = workspace_name
+    k8s_namespace = config.WORKSPACE_K8S_NAMESPACE
     client = await aioredis.from_url(
         f"redis://{config.REDIS_SERVICE_NAME}.{k8s_namespace}:{config.REDIS_PORT}"
     )
@@ -130,11 +127,11 @@ async def deregister(
     return JSONResponse(status_code=200, content=message)
 
 
-@app.post("/workspaces/{workspace_name}/register-collection")
+@app.post("/workspace/register-collection")
 async def register_collection(
-    collection: Dict[str, Any], workspace_name: str = workspace_path_type
+    collection: Dict[str, Any]
 ):
-    k8s_namespace = workspace_name
+    k8s_namespace = config.WORKSPACE_K8S_NAMESPACE
     client = await aioredis.from_url(
         f"redis://{config.REDIS_SERVICE_NAME}.{k8s_namespace}:{config.REDIS_PORT}"
     )

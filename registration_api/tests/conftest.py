@@ -1,7 +1,7 @@
 from fastapi.testclient import TestClient
 import pytest
 
-from workspace_api import app
+from registration_api import app
 
 
 @pytest.fixture

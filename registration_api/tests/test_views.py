@@ -9,8 +9,8 @@ import pytest
 import requests
 import requests.exceptions
 
-from workspace_api import config
-from workspace_api.views import (
+from registration_api import config
+from registration_api.views import (
     WorkspaceStatus,
     wait_for_namespace_secret,
     workspace_name_from_preferred_name,
@@ -21,7 +21,7 @@ from workspace_api.views import (
 @pytest.fixture(autouse=True)
 def mock_k8s_base():
     with mock.patch(
-        "workspace_api.views.current_namespace",
+        "registration_api.views.current_namespace",
         return_value="some-namespace",
     ):
         yield
@@ -30,7 +30,7 @@ def mock_k8s_base():
 @pytest.fixture()
 def mock_remote_backend_harbor():
     with mock.patch(
-        "workspace_api.config.HARBOR_URL",
+        "registration_api.config.HARBOR_URL",
         new="https://example_harbor.com",
     ):
         yield
@@ -39,7 +39,7 @@ def mock_remote_backend_harbor():
 @pytest.fixture()
 def mock_remote_backend_bucket():
     with mock.patch(
-        "workspace_api.config.BUCKET_ENDPOINT_URL",
+        "registration_api.config.BUCKET_ENDPOINT_URL",
         new="https://example.com/bucket",
     ):
         yield
@@ -55,7 +55,7 @@ def mock_read_namespace():
             raise kubernetes.client.rest.ApiException(status=HTTPStatus.NOT_FOUND)
 
     with mock.patch(
-        "workspace_api.views.k8s_client.CoreV1Api.read_namespace",
+        "registration_api.views.k8s_client.CoreV1Api.read_namespace",
         side_effect=new_read_namespace,
     ):
         yield
@@ -63,9 +63,9 @@ def mock_read_namespace():
 
 @pytest.fixture()
 def mock_dynamic_client_apply():
-    with mock.patch("workspace_api.views.DynamicClient") as mocker:
+    with mock.patch("registration_api.views.DynamicClient") as mocker:
         yield mocker
-        # "workspace_api.views.DynamicClient.resources.get.server_side_apply",
+        # "registration_api.views.DynamicClient.resources.get.server_side_apply",
 
 
 @pytest.fixture()
@@ -88,7 +88,7 @@ def mock_read_secret():
             raise kubernetes.client.rest.ApiException(status=HTTPStatus.NOT_FOUND)
 
     with mock.patch(
-        "workspace_api.views.k8s_client.CoreV1Api.read_namespaced_secret",
+        "registration_api.views.k8s_client.CoreV1Api.read_namespaced_secret",
         side_effect=new_read_namespaced_secret,
     ):
         yield
@@ -97,7 +97,7 @@ def mock_read_secret():
 @pytest.fixture()
 def mock_create_secret():
     with mock.patch(
-        "workspace_api.views.k8s_client.CoreV1Api.create_namespaced_secret"
+        "registration_api.views.k8s_client.CoreV1Api.create_namespaced_secret"
     ) as mocker:
         yield mocker
 
@@ -105,7 +105,7 @@ def mock_create_secret():
 @pytest.fixture()
 def mock_create_namespace():
     with mock.patch(
-        "workspace_api.views.k8s_client.CoreV1Api.create_namespace"
+        "registration_api.views.k8s_client.CoreV1Api.create_namespace"
     ) as mocker:
         yield mocker
 
@@ -113,7 +113,7 @@ def mock_create_namespace():
 @pytest.fixture()
 def mock_delete_namespace():
     with mock.patch(
-        "workspace_api.views.k8s_client.CoreV1Api.delete_namespace"
+        "registration_api.views.k8s_client.CoreV1Api.delete_namespace"
     ) as mocker:
         yield mocker
 
@@ -121,7 +121,7 @@ def mock_delete_namespace():
 @pytest.fixture()
 def mock_read_config_map():
     with mock.patch(
-        "workspace_api.views.k8s_client.CoreV1Api.read_namespaced_config_map",
+        "registration_api.views.k8s_client.CoreV1Api.read_namespaced_config_map",
         return_value=k8s_client.V1ConfigMap(
             data={
                 "hr1.yaml": """
@@ -145,7 +145,7 @@ spec:
 @pytest.fixture()
 def mock_list_ingress():
     with mock.patch(
-        "workspace_api.views.k8s_client.NetworkingV1Api.list_namespaced_ingress",
+        "registration_api.views.k8s_client.NetworkingV1Api.list_namespaced_ingress",
         return_value=k8s_client.V1IngressList(
             items=[
                 k8s_client.V1Ingress(
@@ -163,7 +163,7 @@ def mock_list_ingress():
 @pytest.fixture()
 def mock_patch_config_map():
     with mock.patch(
-        "workspace_api.views.k8s_client.CoreV1Api.patch_namespaced_config_map",
+        "registration_api.views.k8s_client.CoreV1Api.patch_namespaced_config_map",
         return_value={},
     ) as mocker:
         yield mocker
@@ -184,7 +184,7 @@ def mock_secret():
 @pytest.fixture()
 def mock_wait_for_secret(mock_secret):
     with mock.patch(
-        "workspace_api.views.wait_for_namespace_secret",
+        "registration_api.views.wait_for_namespace_secret",
         return_value=mock_secret,
     ):
         yield
@@ -509,7 +509,7 @@ def test_wait_for_secret_terminates_on_secret():
     ]
 
     with mock.patch(
-        "workspace_api.views.kubernetes.watch.Watch.stream",
+        "registration_api.views.kubernetes.watch.Watch.stream",
         return_value=fake_events,
     ):
         secret = wait_for_namespace_secret("test")
@@ -528,7 +528,7 @@ def test_wait_for_secret_does_not_terminate_if_wrong_secret():
     ]
 
     with mock.patch(
-        "workspace_api.views.kubernetes.watch.Watch.stream",
+        "registration_api.views.kubernetes.watch.Watch.stream",
         return_value=fake_events,
     ):
         with pytest.raises(Exception):

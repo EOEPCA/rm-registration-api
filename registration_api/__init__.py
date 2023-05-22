@@ -45,4 +45,4 @@ async def log_middle(request: Request, call_next):
     return response
 
 
-import workspace_api.views  # noqa
+import registration_api.views  # noqa

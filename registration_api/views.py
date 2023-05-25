@@ -1,10 +1,10 @@
 from http import HTTPStatus
-from typing import cast, Optional, List, Dict, Any, Union
+from typing import Optional, Dict, Any
 from urllib.parse import urlparse
 import logging
 import json
 
-from fastapi import HTTPException, Path, Response, BackgroundTasks, Header
+from fastapi import Response
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 import aioredis
@@ -24,7 +24,7 @@ class Product(BaseModel):
     parent_identifier: Optional[str] = None
 
 
-@app.post("/workspace/register")
+@app.post("/register")
 async def register(product: Product):
     k8s_namespace = config.WORKSPACE_K8S_NAMESPACE
     client = await aioredis.from_url(
@@ -98,7 +98,7 @@ class DeregisterProduct(BaseModel):
     url: Optional[str]
 
 
-@app.post("/workspace/deregister")
+@app.post("/deregister")
 async def deregister(
     deregister_product: DeregisterProduct
 ):
@@ -127,7 +127,7 @@ async def deregister(
     return JSONResponse(status_code=200, content=message)
 
 
-@app.post("/workspace/register-collection")
+@app.post("/register-collection")
 async def register_collection(
     collection: Dict[str, Any]
 ):

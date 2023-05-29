@@ -143,3 +143,22 @@ async def register_collection(
     message = f"{collection.get('id')} was applied for registration"
     logger.info(message)
     return JSONResponse(status_code=HTTPStatus.ACCEPTED, content={"message": message})
+
+
+@app.post("/register-json")
+async def register_json(
+    record: Dict[str, Any]
+):
+    k8s_namespace = config.WORKSPACE_K8S_NAMESPACE
+    client = await aioredis.from_url(
+        f"redis://{config.REDIS_SERVICE_NAME}.{k8s_namespace}:{config.REDIS_PORT}"
+    )
+
+    await client.lpush(
+        config.REGISTER_JSON_QUEUE,
+        json.dumps(record),
+    )
+    message = f"{record.get('id')} was applied for registration"
+    logger.info(message)
+    return JSONResponse(status_code=HTTPStatus.ACCEPTED, content={"message": message})
+

@@ -24,10 +24,10 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Registration API</h3>
+  <h3 align="center">EOEPCA Registration API</h3>
 
   <p align="center">
-    Template for developing an EOEPCA Service
+    This repository includes the EOEPCA Registration API component
     <br />
     <a href="https://github.com/EOEPCA/rm-registration-api"><strong>Explore the docs »</strong></a>
     <br />
@@ -61,10 +61,6 @@
 ## About The Project
 
 [![Product Name Screen Shot][product-screenshot]](https://github.com/EOEPCA/rm-registration-api)
-
-Here's a blank template to get started:
-**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`rm-workspace-api`, `__fschindler__`, `fabian.schindler@eox.at`
 
 ### Built With
 

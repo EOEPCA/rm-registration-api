@@ -91,7 +91,7 @@ docker-compose up
 
 ## Documentation
 
-The component documentation can be found at https://eoepca.github.io/rm-registration-api/.
+The component documentation can be found at https://github.com/EOEPCA/rm-registration-api/wiki.
 
 
 <!-- ROADMAP -->
